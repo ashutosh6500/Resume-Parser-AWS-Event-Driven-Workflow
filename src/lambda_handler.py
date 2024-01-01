@@ -83,11 +83,11 @@ def lambda_handler(event, context):
 			try:
 				response = table.put_item(Item = data)
 				message = "Successfully Added " + fileName + "Record To Table"
-                sns(message,subject)
+				sns(message,subject)
 				return table.scan()
 			except Exception as e:
 				message = "Error occured during add operation due to Exception: " + str(e)
-                sns(message,subject)
+				sns(message,subject)
 				raise e
 		else:
 			#delete opration
@@ -96,11 +96,11 @@ def lambda_handler(event, context):
 			try:
 				response = table.delete_item(Key = {"fileName" : fileName})
 				message = "Successfully Deleted " + fileName + "Record From Table"
-                sns(message,subject)
+				sns(message,subject)
 				return table.scan()
 			except Exception as e:
-		        message = "Failed to Delete " + fileName + "Record From Table due to Exception : " + str(e)
-                sns(message,subject)
+				message = "Failed to Delete " + fileName + "record due to Exception : "+str(e)
+				sns(message,subject)
 				raise e
 			
 	return {"statusCode" : 200,"body":json.dumps("done")}
