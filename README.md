@@ -22,9 +22,9 @@ Steps:
 ![image](https://github.com/ashutosh6500/Resume-Parser-AWS-Event-Driven-Workflow/assets/65476854/6fbb37a8-a638-4623-a0e2-7b1fc2a43a49)
 
 Basic Idea :
-```
+
 When user uploads resume pdf file to S3 bucket,it triggers lambda function which parse the resume using fitz module and extracts basic information like contact number,Email id etc and puts it in DynamoDB table.After deleting file,it deletes that record from DynamoDB Table.Also it sends mail to subscribed users using SNS service.
-```
+
 Response For add & delete from S3 bucket:
 ```
 
